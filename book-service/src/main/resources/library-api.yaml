@@ -1,0 +1,40 @@
+openapi: 3.0.1
+info:
+  title: Library Service
+  description: The library service
+  version: 1.0.0
+#servers:
+#  - url: 'https://api.example.com'
+tags:       #tags cho phep sap xep cac endpoint thanh cac nhom trong swagger UI
+  - name: "Library"
+
+paths:
+  /library/books:
+    get:
+      summary: This is sumary
+      tags:
+        - "Library"
+      description: Get all books
+      operationId: getAllBooksInLibrary
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+components:
+  schemas:
+    Book:
+      description: This is the book model
+      type: object
+      properties:
+        name:
+          description: The name of book
+          type: string
+        bookAuthor:
+          description: name of author
+          type: string
